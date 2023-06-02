@@ -1,5 +1,35 @@
-.h1 {
-  display: flex;
+body {
+  color: white;
+  display: grid;
   align-items: center;
-  justify-self: center;
+  justify-items: center;
+  gap: 25px;
+  text-align: center;
+  background: #000;
+}
+img {
+  width: 500px;
+  height: 500px;
+}
+
+button {
+  font-size: 15px;
+  font-family: Arial;
+  width: 140px;
+  height: 50px;
+  border-width: 1px;
+  color: #ffffff;
+  border-color: #d83526;
+  font-weight: bold;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: inset 0px 1px 0px 0px #f29c93;
+  text-shadow: inset 0px 1px 0px #b23e35;
+  background: linear-gradient(#fe1a00, #ce0100);
+}
+
+button:hover {
+  background: linear-gradient(#ce0100, #fe1a00);
 }
