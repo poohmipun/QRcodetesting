@@ -30,8 +30,8 @@
             await liff.init({ liffId: '1661306848-yPVLVojM' });
             if (!liff.isLoggedIn()) {
                 liff.login();
-                const destinationUrl = "https://www.youtube.com/watch?v=Bu9vQ-kHkhM&t=327s&ab_channel=LINEDevelopersThailand"
-                liff.login({ redirectUri: destinationUrl })
+                const destinationUrl = window.location.href;
+                liff.login({ redirectUri: destinationUrl });
             }
         }
         main()
