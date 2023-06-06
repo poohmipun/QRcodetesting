@@ -11,27 +11,25 @@
 
 <body>
     <h1 id="result">QRcode-Testing</h1>
-    <div class="row">
-        <button class="button" onclick="scanCodeV2()">QR Code Render </button>
-
-    </div>
-    <img class="img" src="./image.jpg" alt="image">
+    <img id="pictureUrl">
+    <h1 id="userId"><b>userId:</b></h1>
+    <p id="displayName"><b>displayName:</b></p>
+    <p id="statusMessage"><b>statusMessage:</b></p>
+    <p id="decodedIDToken"><b>email:</b></p>
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
-        async function scanCodeV2() {
-            try {
-                const result = await liff.scanCodeV2();
-                document.querySelector('#result').innerHTML = result.value;
-            } catch (error) {
-                console.log('scanCodeV2', error);
-            }
+        async function getUserProfile() {
+            const profile = await liff.getUserProfile()
+            document.getElementById("pictureUrl").src = profile.pictureUrl
+            document.getElementById('userId').append(profile.userId)
+            document.getElementById('statusMessage').append(profile.displayName)
+            document.getElementById('decodedIDToken').append(liff.getDecodedIDtoken().email)
         }
         async function main() {
-            await liff.init({ liffId: '1661306848-yPVLVojM' });
-            if (!liff.isLoggedIn()) {
-                liff.login();
-                const destinationUrl = window.location.href;
-                liff.login({ redirectUri: destinationUrl });
+            await liff.init({ liffId: '1661306848-yPVLVojM', withLoginOnExternalBrowser: true });
+            if (liff.isLoggedIn()) {
+                getUserProfile()
+
             }
         }
         main()
