@@ -11,8 +11,11 @@
 
 <body>
     <h1 id="result">QRcode-Testing</h1>
-    <button onclick="scanCodeV2()">QR Code Render </button>
-    <img src="./image.jpg" alt="image">
+    <div class="row">
+        <button class="button" onclick="scanCodeV2()">QR Code Render </button>
+
+    </div>
+    <img class="img" src="./image.jpg" alt="image">
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
         async function scanCodeV2() {
@@ -27,9 +30,14 @@
             await liff.init({ liffId: '1661306848-yPVLVojM' });
             if (!liff.isLoggedIn()) {
                 liff.login();
+                const queryString = decodeURIComponent(window.location.search)
+                const link = new URLSearchParams(queryString)
+                if (link.get("link") !== null) {
+                    window.open("https://www.youtube.com/watch?v=Bu9vQ-kHkhM&ab_channel=LINEDevelopersThailand", 'link', 'width=500,height=500')
+                }
             }
         }
-        main();
+        main()
     </script>
 </body>
 
