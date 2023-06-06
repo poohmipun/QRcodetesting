@@ -31,9 +31,9 @@
             if (!liff.isLoggedIn()) {
                 liff.login();
                 const queryString = decodeURIComponent(window.location.search)
-                const link = new URLSearchParams(queryString)
-                if (link.get("link") !== null) {
-                    window.open("https://www.youtube.com/watch?v=Bu9vQ-kHkhM&ab_channel=LINEDevelopersThailand", 'link', 'width=500,height=500')
+                const param = new URLSearchParams(queryString)
+                if (param.get("param") !== null) {
+                    document.getElementsByTagName("h1")[0].innerHTML = params.get(param)
                 }
             }
         }
