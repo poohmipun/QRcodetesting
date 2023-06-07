@@ -20,7 +20,7 @@
             <div class="card-body">
                 <h5 id="result1" class="card-title">กดเลย!</h5>
                 <p id="result" class=" card-text">ทดลองแสกนQRcode</p>
-                <a class="my-button" onclick="scanCodeV2()" disable><span></span>QR Code Reader</a>
+                <a id="button" class="my-button" onclick="scanCodeV2()" disable><span></span>QR Code Reader</a>
             </div>
         </div>
     </div>
@@ -37,6 +37,7 @@
                     const result = await liff.scanCodeV2();
                     document.querySelector('#result').innerHTML = result.value;
                     document.querySelector('#result1').innerHTML = "ผลลัพธ์การแสกน"
+                    document.querySelector('#button').innerHTML = "scan agian"
                     document.getElementById("imageid").src = "./green.png";
 
                 } catch (error) {
