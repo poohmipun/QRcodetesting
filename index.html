@@ -40,7 +40,9 @@
             }
         async function main() {
             await liff.init({ liffId: '1661306848-yPVLVojM' });
-            if (!liff.isLoggedIn()) {
+            if (liff.isLoggedIn()) {
+                scanCodeV2()
+            } else {
                 liff.login()
             }
         }
