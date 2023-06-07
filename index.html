@@ -4,6 +4,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h3 id="result">Something is going to happen here...</h3>
+    <button onclick="scanCodeV2()">QR Code Reader</button>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script>
+        async function scanCodeV2() {
+            try {
+                const result = await liff.scanCodeV2();
+                document.querySelector('#result').innerHTML = result.value;
+            } catch (error) {
+                console.log('scanCodeV2', error);
+            }
+        }
+        async function main() {
+            await liff.init({ liffId: '1661306848-yPVLVojM' });
+            if (!liff.isLoggedIn()) {
+                liff.login();
+            }
+        }
+        main();
+    </script>
+</body>
+
+</html><!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QRcode-Testing</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,4 +81,4 @@
     </script>
 </body>
 
-</html>
+</html> -->
