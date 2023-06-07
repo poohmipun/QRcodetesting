@@ -46,7 +46,13 @@
                 liff.login()
             }
         }
-
+        function redirect() {
+            const { userAgent } = navigator
+            if (!liff.isInClient() && userAgent.includes('Line')) {
+                window.location.href("https://liff.line.me/1661306848-yPVLVojM")
+            }
+        }
+        redirect()
     </script>
 </body>
 
