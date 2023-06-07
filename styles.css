@@ -128,8 +128,8 @@ section {
   font-size: 1.3rem;
 }
 a.my-button {
-  background: linear-gradient(to right, #196bca, #6433e0);
-  background-color: #196bca;
+  background: linear-gradient(to right, #0a761c, #65c913);
+  background-color: #4ff42a;
   color: #fff;
   font-family: Trebuchet MS;
   font-size: 18px;
@@ -156,8 +156,8 @@ a.my-button span {
 }
 
 a.my-button:hover {
-  background: linear-gradient(to right, #5482d0, #7d5ee3);
-  background-color: #5482d0;
+  background: linear-gradient(to right, #00a74e, #5ee381);
+  background-color: #08552b;
 }
 a.my-button:active {
   transform: scale(0.95);
