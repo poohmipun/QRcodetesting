@@ -31,7 +31,6 @@ body {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
-  cursor: pointer;
 }
 
 img {
@@ -83,6 +82,7 @@ a.my-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 a.my-button span {
   margin-right: 15px;
