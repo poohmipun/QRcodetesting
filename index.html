@@ -16,7 +16,7 @@
 <body class="bg-dark">
     <div class="container">
         <div class="card" style="width: 18rem;">
-            <img src="/Scan QRcode.png" class="card-img-top" alt="...">
+            <img src="./Scan QRcode.png" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 id="result1" class="card-title">กดเลย!</h5>
                 <p id="result" class=" card-text">ทดลองแสกนQRcode</p>
@@ -31,12 +31,15 @@
         crossorigin = "anonymous" ></script>
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
+
             async function scanCodeV2() {
                 try {
                     const result = await liff.scanCodeV2();
                     document.querySelector('#result').innerHTML = result.value;
                     document.querySelector('#result1').innerHTML = "ผลลัพธ์การแสกน"
-
+                    document.querySelector('#image') = "ผลลัพธ์การแสกน"
+                    const img = document.querySelector(".image");
+                    image.src = "./green.png";
                 } catch (error) {
                     alert(error);
                 }
@@ -45,6 +48,8 @@
             await liff.init({ liffId: '1661306848-yPVLVojM' });
             if (!liff.isLoggedIn()) {
                 liff.login()
+                const img = document.querySelector(".image");
+                image.src = "./Scan QRcode.png";
             }
         }
         main()
