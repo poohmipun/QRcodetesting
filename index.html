@@ -20,7 +20,7 @@
             <div class="card-body">
                 <h5 class="card-title">กดเลย!</h5>
                 <p class="card-text">ทดลองแสกนQRcode</p>
-                <a class="my-button" onclick="main()" disable><span></span>QR Code Reader</a>
+                <a class="my-button" onclick="checklogin()" disable><span></span>QR Code Reader</a>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
                     alert(error);
                 }
             }
-        async function main() {
+        async function checklogin() {
             await liff.init({ liffId: '1661306848-yPVLVojM' });
             if (liff.isLoggedIn()) {
                 scanCodeV2()
@@ -46,10 +46,11 @@
                 liff.login()
             }
         }
-        function redirect() {
+        async function redirect() {
             const { userAgent } = navigator
             if (!liff.isInClient() && userAgent.includes('Line')) {
-                window.location.href("https://liff.line.me/1661306848-yPVLVojM")
+                const liffUrl = await liff.permanentLink.createUrlBy(window.location.href)
+                window.location = liffUrl
             }
         }
         redirect()
