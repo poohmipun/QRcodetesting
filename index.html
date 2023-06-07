@@ -20,7 +20,7 @@
             <div class="card-body">
                 <h5 class="card-title">กดเลย!</h5>
                 <p class="card-text">ทดลองแสกนQRcode</p>
-                <a class="my-button" onclick="scanCodeV2()"><span></span>QR Code Reader</a>
+                <a class="my-button" onclick="main()" disable><span></span>QR Code Reader</a>
             </div>
         </div>
     </div>
@@ -38,14 +38,15 @@
                     alert(error);
                 }
             }
-
         async function main() {
             await liff.init({ liffId: '1661306848-yPVLVojM' });
-            if (!liff.isLoggedIn()) {
-                liff.login();
+            if (liff.isLoggedIn()) {
+                scanCodeV2()
+            } else {
+                liff.login({ redirectUri: "https://poohmipun-qr-code-testing.netlify.app/" })
             }
         }
-        main();
+
     </script>
 </body>
 
