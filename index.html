@@ -38,15 +38,13 @@
                     alert(error);
                 }
             }
-        async function checklogin() {
+        async function main() {
             await liff.init({ liffId: '1661306848-yPVLVojM' });
             if (!liff.isLoggedIn()) {
                 liff.login()
-            } else {
-
             }
         }
-
+        main()
     </script>
 </body>
 
