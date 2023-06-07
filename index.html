@@ -36,7 +36,7 @@
             async function scanCodeV2() {
                 try {
                     const result = await liff.scanCodeV2();
-                    document.querySelector('#result').innerHTML = result.value;
+                    document.querySelector('#myPopup').innerHTML = result.value;
                     var popup = document.getElementById("myPopup");
                     popup.classList.toggle("show");
                 } catch (error) {
