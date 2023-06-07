@@ -16,7 +16,7 @@
 <body class="bg-dark">
     <div class="container">
         <div class="card" style="width: 18rem;">
-            <img id="img" src="./Scan QRcode.png" class="card-img-top" alt="...">
+            <img id="imageid" src="./Scan QRcode.png" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 id="result1" class="card-title">กดเลย!</h5>
                 <p id="result" class=" card-text">ทดลองแสกนQRcode</p>
@@ -37,8 +37,8 @@
                     const result = await liff.scanCodeV2();
                     document.querySelector('#result').innerHTML = result.value;
                     document.querySelector('#result1').innerHTML = "ผลลัพธ์การแสกน"
-                    const img = document.querySelector('#img');
-                    image.src = "./green.png";
+                    document.getElementById("imageid").src = "./green.png";
+
                 } catch (error) {
                     alert(error);
                 }
@@ -47,8 +47,7 @@
             await liff.init({ liffId: '1661306848-yPVLVojM' });
             if (!liff.isLoggedIn()) {
                 liff.login()
-                const img = document.querySelector('#img');
-                image.src = "./Scan QRcode.png";
+
             }
         }
         main()
